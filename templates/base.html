@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    {% block title %}<title>Jacob Desilets</title>{% endblock %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+		{% tailwind_css %}
+	</head>
+
+  <body class='flex-col flex h-screen bg-gradient-to-b from-slate-600 to-emerald-900'>
+    {% block navbar %}
+      <nav>
+        <div class='flex px-5 py-5'>
+          <div class='container flex items-center mx-4'>
+            <a href="/" class="flex items-center">
+              <span class="self-center text-xl font-extrabold whitespace-nowrap text-emerald-300 hover:text-emerald-400">JACOB DESILETS</span>
+            </a>
+          </div>
+          <div class='container flex items-center mx-4 justify-end'>
+            <a href="/spaceyard" class="flex items-center">
+              <span class="self-center text-xl font-extrabold whitespace-nowrap text-emerald-400">SPACEYARD</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    {% endblock navbar %}
+    
+    {% block content %}
+      <h1 style='color: #fc0345;'></h1>
+    {% endblock %}
+  </body>
+</html>
