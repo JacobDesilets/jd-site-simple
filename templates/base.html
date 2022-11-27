@@ -7,22 +7,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="/static/css/mystyle.css">
+    {% block head %}{% endblock head %}
 		{% tailwind_css %}
 	</head>
 
-  <body class='flex-col flex h-screen bg-gradient-to-b from-slate-600 to-emerald-900'>
+  <body class='flex-col flex h-screen bg-gradient-to-br from-slate-900 to-emerald-300'>
     {% block navbar %}
       <nav>
         <div class='flex px-5 py-5'>
           <div class='container flex items-center mx-4'>
-            <a href="/" class="flex items-center">
+            <a href="/" class="flex items-center pr-20">
               <span class="self-center text-xl font-extrabold whitespace-nowrap text-emerald-300 hover:text-emerald-400">JACOB DESILETS</span>
             </a>
-          </div>
-          <div class='container flex items-center mx-4 justify-end'>
-            <a href="/spaceyard" class="flex items-center">
-              <span class="self-center text-xl font-extrabold whitespace-nowrap text-emerald-400">SPACEYARD</span>
+            <a href="https://github.com/jacobdesilets" class="shrink-0 items-center pr-6">
+              <img src="/static/assets/GitHub-Mark-Light-32px.png" alt="GitHub">
             </a>
+            <a href="https://www.linkedin.com/in/jacob-desilets/" class="shrink-0 items-center pr-6">
+              <img src="/static/assets/LI-In-Bug.png" alt="LinkedIn">
+            </a>
+            <div x-data="{ open: false }" x-on:mouseleave="open = false" class="flex shrink-0 items-center hover:bg-teal-800 rounded-lg transition ease-in-out">
+              <a x-on:mouseover="open = true" href="mailto:jacobdesilets@gmail.com">
+                <img src="/static/assets/icons8-mail-32.png" alt="LinkedIn">
+              </a>
+              <span x-show='open' x-transition.duration.300ms class='text-white font-medium px-3'>jacobdesilets@gmail.com</span>
+            </div>
+          </div>
+          <div class='container flex items-center mx-4 justify-end pl-6'>
+              <span class="flex self-center text-xl font-extrabold whitespace-nowrap text-emerald-400">PERSONAL WEBSITE</span>
           </div>
         </div>
       </nav>

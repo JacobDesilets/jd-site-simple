@@ -1,6 +1,38 @@
 {% extends 'base.html' %}
+{% block head %}
+<script type='module'>
+    import {
+        start_three_d
+    } from '/static/js/ThreeDView.js'
+    console.log('Hello!');
+
+    window.start_three = function() {
+        start_three_d()
+    }
+</script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{% endblock head %}
+
+
 {% block content %}
-    <div class='container mx-5 my-5'>
-        <h1 class='text-8xl font-bold'>Jacob's Website</h1>
+    
+    <canvas id='canvas' class='ThreeDCanvas'></canvas>
+
+    
+                
+    <div class='flex px-8'>
+        <div>
+            <p class='text-slate-200'>
+                Hi! I'm Jacob.
+                Welcome to my website.
+            </p>
+            <button x-data="{ clicked: false }" x-bind:disabled="clicked" x-on:click="start_three(); clicked = true" class='text-white font-bold bg-green-500 hover:bg-green-700 active:bg-green-900 py-2 px-4 rounded disabled:bg-green-400 disabled:hover:bg-green-400 disabled:opacity-25'>Start 3D</button>
+        </div>
     </div>
+
+
+    
+
+    
+    
 {% endblock content %}
